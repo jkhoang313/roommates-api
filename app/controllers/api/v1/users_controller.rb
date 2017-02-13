@@ -1,15 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-  def index
-    @users = User.all
-    render json: @users
-  end
-
   def create
     @user = User.new(user_params)
-    byebug
     if @user.save
-      # jwt = Auth.encrypt({user.id: @user.id})
-      # render json: {jwt: jwt, @user.first_name}
+      jwt = Auth.encrypt({user_id: @user.id})
+      render json: {jwt: jwt, user_first_name: @user.first_name}
     else
       render json: "Error", status: 404
     end
