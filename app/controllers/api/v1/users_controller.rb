@@ -6,9 +6,11 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.user_name.downcase!
     if @user.save
       jwt = Auth.encrypt({user_id: @user.id})
-      render json: {jwt: jwt, user_first_name: @user.first_name}
+
+      render json: {jwt: jwt, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
     else
       render json: "Error", status: 404
     end
@@ -19,6 +21,16 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
+  def login
+    @user = User.find_by(user_name: params[:userName].downcase)
+    if @user && @user.authenticate(params[:password])
+      @user = User.find_by(user_name: params[:userName].downcase)
+      jwt = Auth.encrypt({user_id: @user.id})
+
+      render json: {jwt: jwt, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
+    end
+  end
+  
   private
 
   def user_params
