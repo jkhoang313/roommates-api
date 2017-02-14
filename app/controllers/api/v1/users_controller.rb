@@ -30,7 +30,14 @@ class Api::V1::UsersController < ApplicationController
       render json: {jwt: jwt, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
     end
   end
-  
+
+  def current_user
+    @user = User.find(Auth.decode(params[:jwt_token])["user_id"])
+
+    render json: {jwt: params[:jwt_token], fullName: @user.full_name, email: @user.email, userName: @user.user_name}
+
+  end
+
   private
 
   def user_params

@@ -5,7 +5,8 @@ class Auth
     JWT.encode(hash, secret_key, ALGORITHM)
   end
 
-  def self.decode()
+  def self.decode(jwt)
+    JWT.decode(jwt, secret_key, true, {algorithm: ALGORITHM}).first
   end
 
   def self.secret_key
