@@ -21,23 +21,14 @@ class Api::V1::UsersController < ApplicationController
     render json: @user
   end
 
-  def login
-    @user = User.find_by(user_name: params[:userName].downcase)
-    if @user && @user.authenticate(params[:password])
-      @user = User.find_by(user_name: params[:userName].downcase)
-      jwt = Auth.encrypt({user_id: @user.id})
-      @home = @user.home
-      render json: {jwt: jwt}
-    end
-  end
-
-  def current_user
-    @user = User.find(Auth.decode(params[:jwt_token])["user_id"])
+  def return_current_user
+    @user = current_user
     @home = @user.home
+    token = request.headers['HTTP_AUTHORIZATION']
     if @home
-      render json: {jwt: params[:jwt_token], fullName: @user.full_name, email: @user.email, userName: @user.user_name, homeName: @home.name, homeAddress: @home.address}
+      render json: {jwt: token, fullName: @user.full_name, email: @user.email, userName: @user.user_name, homeName: @home.name, homeAddress: @home.address}
     else
-      render json: {jwt: params[:jwt_token], fullName: @user.full_name, email: @user.email, userName: @user.user_name}
+      render json: {jwt: token, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
     end
   end
 
