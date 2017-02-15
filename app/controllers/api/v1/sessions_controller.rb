@@ -1,5 +1,4 @@
 class Api::V1::SessionsController < ApplicationController
-
   def index
     @user = current_user
     render json: @user
@@ -12,5 +11,4 @@ class Api::V1::SessionsController < ApplicationController
       render json: {jwt: jwt}
     end
   end
-
 end
