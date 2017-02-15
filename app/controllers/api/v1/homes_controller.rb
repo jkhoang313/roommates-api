@@ -11,14 +11,6 @@ class Api::V1::HomesController < ApplicationController
     else
       render json: "Error", status: 404
     end
-    # @user.user_name.downcase!
-    # if @user.save
-    #   jwt = Auth.encrypt({user_id: @user.id})
-    #
-    #   render json: {jwt: jwt, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
-    # else
-    #   render json: "Error", status: 404
-    # end
   end
 
   private
