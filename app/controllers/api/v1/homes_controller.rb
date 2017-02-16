@@ -11,7 +11,8 @@ class Api::V1::HomesController < ApplicationController
       token = request.headers['HTTP_AUTHORIZATION']
       @bill = Bill.create(home_id: @home.id)
       @user.update(home_id: @home.id)
-      render json: {jwt: token, fullName: @user.full_name, email: @user.email, userName: @user.user_name, homeName: @home.name, homeAddress: @home.address}
+      # render json: {jwt: token, fullName: @user.full_name, email: @user.email, userName: @user.user_name, homeName: @home.name, homeAddress: @home.address}
+      render json: @home
     else
       render json: "Error", status: 404
     end
