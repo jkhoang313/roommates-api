@@ -1,0 +1,22 @@
+class Api::V1::MessagesController < ApplicationController
+  def index
+    @messages = Message.all
+    render json: @messages
+  end
+
+  def create
+    @message = Message.new(message_params)
+    if @message.save
+      render json: {message: @message}
+    else
+      render json: "Error", status: 404
+    end
+  end
+
+  private
+
+  def message_params
+    params.permit(:message_content)
+  end
+
+end
