@@ -18,6 +18,18 @@ class Api::V1::HomesController < ApplicationController
     end
   end
 
+  def get_home
+    @home = current_user.home
+    render json: @home
+  end
+
+  def update
+    @home = Home.find(params[:id])
+    current_user.home = @home
+    current_user.save
+    render json: @home
+  end
+
   private
 
   def home_params
