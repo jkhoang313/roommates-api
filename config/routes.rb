@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get '/find_bill', to: 'bills#find_bill'
 
       resources :transactions, only: [:create, :index, :show, :destroy]
+      resources :homes, only: [:create]
+      resources :messages, only: [:index, :create]
     end
   end
 end

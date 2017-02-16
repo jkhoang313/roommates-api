@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :messages
   belongs_to :home, optional: true
   has_one :bill, through: :home
   has_many :transactions
