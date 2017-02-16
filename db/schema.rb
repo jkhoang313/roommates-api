@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 20170215210114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bills", force: :cascade do |t|
+    t.integer "home_id"
+    t.integer "total",   default: 0
+  end
+
   create_table "homes", force: :cascade do |t|
     t.string   "address"
     t.string   "name"
@@ -22,6 +27,10 @@ ActiveRecord::Schema.define(version: 20170215210114) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.string  "title"
+    t.string  "description"
+    t.decimal "amount",      precision: 8, scale: 2
   create_table "messages", force: :cascade do |t|
     t.string  "message_content"
     t.integer "home_id"
