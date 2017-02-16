@@ -8,8 +8,9 @@ class Api::V1::TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
     if @transaction.save
-      @transaction.update_bill
-      render json: @transaction
+      @bill = @transaction.bill
+      @bill.update_changes
+      render json: @bill.transactions
     else
       render json: "Error", status: 404
     end
@@ -18,6 +19,14 @@ class Api::V1::TransactionsController < ApplicationController
   def show
     @transaction = Transaction.find(params[:id])
     render json: @transaction
+  end
+
+  def destroy
+    @transaction = Transaction.find(params[:id])
+    @bill = @transaction.bill
+    @transaction.destroy
+    @bill.update_changes
+    render json: @bill.transactions
   end
 
   private

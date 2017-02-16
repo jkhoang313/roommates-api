@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/users/current_user', to: 'users#return_current_user'
       resources :users, only: [:create, :index, :show]
-      
+
       post '/users/login', to: 'sessions#create'
 
       resources :homes, only: [:create, :index]
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :bills, only: [:create, :index, :show]
       get '/find_bill', to: 'bills#find_bill'
 
-      resources :transactions, only: [:create, :index, :show]
+      resources :transactions, only: [:create, :index, :show, :destroy]
     end
   end
 end
