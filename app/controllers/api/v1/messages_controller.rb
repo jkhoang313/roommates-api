@@ -6,8 +6,11 @@ class Api::V1::MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @user = current_user
+    @message.user = @user
+    @message.home = @user.home
     if @message.save
-      render json: {message: @message}
+      render json: @message
     else
       render json: "Error", status: 404
     end
