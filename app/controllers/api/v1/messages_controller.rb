@@ -1,6 +1,6 @@
 class Api::V1::MessagesController < ApplicationController
   def index
-    @messages = Message.all
+    @messages = current_user.home.messages
     render json: @messages
   end
 
