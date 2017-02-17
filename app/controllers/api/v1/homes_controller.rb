@@ -27,6 +27,11 @@ class Api::V1::HomesController < ApplicationController
     render json: @home
   end
 
+  def remove_home
+    current_user.update(home_id: nil)
+    render json: {}
+  end
+
   private
 
   def home_params
