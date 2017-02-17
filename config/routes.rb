@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :transactions, only: [:create, :index, :show, :destroy]
 
       resources :messages, only: [:index, :create]
+      
+      resources :events, only: [:index, :create]
     end
   end
 end
