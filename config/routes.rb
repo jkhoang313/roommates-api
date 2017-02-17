@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/users/current_user', to: 'users#return_current_user'
+      patch '/update_user_profile', to: 'users#update_user_profile'
       resources :users, only: [:create, :index, :show]
 
       post '/users/login', to: 'sessions#create'

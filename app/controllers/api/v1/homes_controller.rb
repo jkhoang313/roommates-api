@@ -32,6 +32,12 @@ class Api::V1::HomesController < ApplicationController
     render json: {}
   end
 
+  def update
+    @home = Home.find(params[:id])
+    @home.update(home_params)
+    render json: @home
+  end
+
   private
 
   def home_params
