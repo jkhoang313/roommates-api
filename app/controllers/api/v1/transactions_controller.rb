@@ -1,7 +1,7 @@
 class Api::V1::TransactionsController < ApplicationController
   def index
     @transactions = current_user.bill.transactions
-    render json: @transactions
+    render json: @transactions.order(id: :desc)
   end
 
   def create
@@ -26,7 +26,7 @@ class Api::V1::TransactionsController < ApplicationController
     @bill = @transaction.bill
     @transaction.destroy
     @bill.update_changes
-    render json: @bill.transactions
+    render json: @bill.transactions.order(id: :desc)
   end
 
   private

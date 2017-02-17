@@ -21,13 +21,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def return_current_user
-    @user = current_user
-    @home = @user.home
-    if @home
-      render json: @user
-    else
-      render json: @user
-    end
+    render json: current_user
+  end
+
+  def update_user_profile
+    current_user.update(user_params)
+    render json: current_user
   end
 
   private
