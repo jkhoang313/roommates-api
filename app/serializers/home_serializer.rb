@@ -1,4 +1,3 @@
 class HomeSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address
-  has_many :users
+  attributes :id, :name, :address, :bill, :users
 end

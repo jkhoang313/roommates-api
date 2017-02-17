@@ -7,10 +7,10 @@ class Api::V1::TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
+    @transaction.bill = current_user.bill
     if @transaction.save
-      @bill = @transaction.bill
-      @bill.update_changes
-      render json: @bill.transactions
+      @transaction.bill.update_changes
+      render json: @transaction
     else
       render json: "Error", status: 404
     end

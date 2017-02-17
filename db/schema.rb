@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170215213314) do
 
   create_table "bills", force: :cascade do |t|
     t.integer "home_id"
-    t.integer "total",   default: 0
+    t.decimal "total",   precision: 8, scale: 2, default: "0.0"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170215213314) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string  "message_content"
+    t.string  "content"
     t.integer "home_id"
     t.integer "user_id"
   end
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170215213314) do
     t.string  "description"
     t.decimal "amount",      precision: 8, scale: 2
     t.integer "user_id"
+    t.integer "bill_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,8 +47,8 @@ ActiveRecord::Schema.define(version: 20170215213314) do
     t.string   "user_name"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "home_id"
     t.string   "image_url"
+    t.integer  "home_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

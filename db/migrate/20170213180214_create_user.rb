@@ -6,8 +6,8 @@ class CreateUser < ActiveRecord::Migration[5.0]
       t.string :user_name
       t.string :email
       t.string :password_digest
-      t.integer :home_id
       t.string :image_url
+      t.integer :home_id
 
       t.timestamps
     end

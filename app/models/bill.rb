@@ -1,7 +1,7 @@
 class Bill < ApplicationRecord
   belongs_to :home
   has_many :users, through: :home
-  has_many :transactions, through: :users
+  has_many :transactions
 
   def update_changes
     new_total = self.transactions.sum(:amount)
