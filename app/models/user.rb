@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_one :bill, through: :home
   has_many :transactions
   has_many :messages
+  has_many :events
   has_secure_password
 
   def full_name
