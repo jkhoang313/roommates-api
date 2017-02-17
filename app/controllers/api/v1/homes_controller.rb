@@ -38,9 +38,16 @@ class Api::V1::HomesController < ApplicationController
     render json: @home
   end
 
+  def kick_member
+    @home = Home.find(params[:id])
+    @member = User.find(params[:member_id])
+    @member.update(home_id: nil)
+    render json: @home
+  end
+
   private
 
   def home_params
-    params.permit(:name, :address)
+    params.permit(:name, :address, :rules)
   end
 end

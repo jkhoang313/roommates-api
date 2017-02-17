@@ -1,3 +1,3 @@
 class HomeSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :bill, :users
+  attributes :id, :name, :address, :bill, :rules, :users
 end

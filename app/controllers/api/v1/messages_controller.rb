@@ -1,7 +1,7 @@
 class Api::V1::MessagesController < ApplicationController
   def index
     @messages = current_user.home.messages
-    render json: @messages
+    render json: @messages.order(id: :desc)
   end
 
   def create

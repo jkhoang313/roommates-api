@@ -4,6 +4,8 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.string :content
       t.integer :home_id
       t.integer :user_id
+
+      t.timestamps
     end
   end
 end

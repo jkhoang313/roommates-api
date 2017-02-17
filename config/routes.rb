@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get '/home', to: 'homes#get_home'
       patch '/add_home/:id', to: 'homes#add_to_home'
       patch '/remove_home', to: 'homes#remove_home'
+      patch '/homes/:id/kick/:member_id', to: 'homes#kick_member'
       resources :homes, only: [:create, :index, :update]
 
       get '/find_bill', to: 'bills#find_bill'
