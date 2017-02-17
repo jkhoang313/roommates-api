@@ -9,7 +9,6 @@ class Api::V1::UsersController < ApplicationController
     @user.user_name.downcase!
     if @user.save
       jwt = Auth.encrypt({user_id: @user.id})
-      # render json: {jwt: jwt, id: @user.id, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
       render json: {jwt: jwt, user: @user}
     else
       render json: "Error", status: 404
@@ -24,12 +23,9 @@ class Api::V1::UsersController < ApplicationController
   def return_current_user
     @user = current_user
     @home = @user.home
-    token = request.headers['HTTP_AUTHORIZATION']
     if @home
-      # render json: {jwt: token, id: @user.id, fullName: @user.full_name, email: @user.email, userName: @user.user_name, homeName: @home.name, homeAddress: @home.address}
       render json: @user
     else
-      # render json: {jwt: token, id: @user.id, fullName: @user.full_name, email: @user.email, userName: @user.user_name}
       render json: @user
     end
   end

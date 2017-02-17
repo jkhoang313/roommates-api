@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-
   def current_user
     token = request.headers['HTTP_AUTHORIZATION']
     if token

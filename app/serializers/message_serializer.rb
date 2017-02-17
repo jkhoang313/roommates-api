@@ -1,7 +1,6 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :message_content, :user_id, :id
-  has_one :user
+  attributes :content, :user, :id
   class UserSerializer < ActiveModel::Serializer
-    attributes :user_name, :image_url
+    attributes :user_id, :user_name, :image_url
   end
 end
