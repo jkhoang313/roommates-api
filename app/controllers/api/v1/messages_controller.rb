@@ -1,6 +1,7 @@
 class Api::V1::MessagesController < ApplicationController
   def index
-    @messages = current_user.home.messages
+    # @messages = current_user.home.messages
+    @messages = Message.all
     render json: @messages.order(id: :desc)
   end
 

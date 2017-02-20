@@ -7,6 +7,8 @@ class CreateEvent < ActiveRecord::Migration[5.0]
       t.datetime :end_date
       t.integer :home_id
       t.integer :user_id
+
+      t.timestamps
     end
   end
 end
