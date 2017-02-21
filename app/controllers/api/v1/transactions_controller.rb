@@ -33,6 +33,6 @@ class Api::V1::TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.permit(:title, :description, :amount)
+    params.permit(:title, :description, :amount, :payment_type, :receiver_id)
   end
 end
