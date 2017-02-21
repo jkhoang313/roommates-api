@@ -4,6 +4,7 @@ class CreateHomes < ActiveRecord::Migration[5.0]
       t.string :address
       t.string :name
       t.string :rules
+      t.integer :admin_id
 
       t.timestamps
     end

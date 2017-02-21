@@ -10,6 +10,7 @@ class Api::V1::TransactionsController < ApplicationController
     @transaction.bill = current_user.bill
     if @transaction.save
       @transaction.bill.update_changes
+      @transaction.update_balances
       render json: @transaction
     else
       render json: "Error", status: 404
@@ -24,7 +25,7 @@ class Api::V1::TransactionsController < ApplicationController
   def destroy
     @transaction = Transaction.find(params[:id])
     @bill = @transaction.bill
-    @transaction.destroy
+    @transaction.remove
     @bill.update_changes
     render json: @bill.transactions.order(id: :desc)
   end

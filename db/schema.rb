@@ -29,12 +29,15 @@ ActiveRecord::Schema.define(version: 20170217153444) do
     t.datetime "end_date"
     t.integer  "home_id"
     t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "homes", force: :cascade do |t|
     t.string   "address"
     t.string   "name"
     t.string   "rules"
+    t.integer  "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,8 +68,9 @@ ActiveRecord::Schema.define(version: 20170217153444) do
     t.string   "password_digest"
     t.string   "image_url"
     t.integer  "home_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.decimal  "balance",         precision: 8, scale: 2, default: "0.0"
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
   end
 
 end
