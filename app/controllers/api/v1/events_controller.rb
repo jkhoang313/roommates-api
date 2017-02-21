@@ -1,6 +1,6 @@
 class Api::V1::EventsController < ApplicationController
   def index
-    @events = current_user.home.events
+    @events = Event.all
     render json: @events
   end
 
