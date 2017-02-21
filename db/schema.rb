@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170217153444) do
     t.string   "address"
     t.string   "name"
     t.string   "rules"
+    t.integer  "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

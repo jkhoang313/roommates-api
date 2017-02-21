@@ -7,6 +7,7 @@ class Api::V1::HomesController < ApplicationController
   def create
     @user = current_user
     @home = Home.new(home_params)
+    @home.admin = @user
     if @home.save
       @bill = Bill.create(home_id: @home.id)
       @user.update(home_id: @home.id)
