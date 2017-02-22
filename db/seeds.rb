@@ -7,7 +7,7 @@ User.create(first_name: "Johnny", last_name: "Kong", user_name: "jkong", email: 
 User.create(first_name: "Timothy", last_name: "Chang", user_name: "tchang", email: "tim@tim.com", password: "t", password_confirmation: "t", image_url: "https://scontent.fewr1-2.fna.fbcdn.net/v/t1.0-1/c0.27.160.160/p160x160/15966154_10154701778871508_5156580438285713655_n.jpg?oh=e03ab0e62b3de2612c8811dfa9671e4d&oe=594922A7", home_id: 1)
 User.create(first_name: "Mark", last_name: "Favor", user_name: "mfavor", email: "mark@mark.com", password: "m", password_confirmation: "m", image_url: "https://scontent.fewr1-2.fna.fbcdn.net/v/t1.0-1/c0.59.649.649/s200x200/13876219_10157198441985052_6983698751903696829_n.jpg?oh=776d595234fe054758be3b088b1d644e&oe=59019D53", home_id: 1)
 Transaction.create(title: "taco tuesday", description: "beef, chips, salsa", amount: 65.44, user_id: 1, bill_id: 1, payment_type: "Expense").update_balances
-Transaction.create(title: "paypayed", description: "taco tuesday", amount: 16, user_id: 7, bill_id: 2, payment_type: "Payment", receiver_id: 5).update_balances
+Transaction.create(title: "paypayed", description: "taco tuesday", amount: 16, user_id: 7, bill_id: 2, payment_type: "Payment", receiver_id: 2).update_balances
 Transaction.create(title: "utilities", description: "month of january", amount: 140.22, user_id: 2, bill_id: 1, payment_type: "Expense").update_balances
 Transaction.create(title: "suprise party", description: "alcohol($80), food($30), cups($15)", amount: 125, user_id: 4, bill_id: 1, payment_type: "Expense").update_balances
 Transaction.create(title: "ordered chinese food", description: "that place down the block is good", amount: 50.98, user_id: 4, bill_id: 1, payment_type: "Expense").update_balances
