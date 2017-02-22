@@ -27,6 +27,7 @@ Event.create(title: "Movie Night", description: "The Dark Knight, Inception, or 
 User.create(first_name: "Brad", last_name: "Smith", user_name: "bradlypitt", email: "brad@aol.com", password: "s", password_confirmation: "s", image_url: "http://news.cornell.edu/sites/chronicle.cornell/files/styles/feature_460x307_crop_only/public/mfa460.jpg?itok=nWQ8Y-RY")
 User.create(first_name: "Michael", last_name: "Johnson", user_name: "mickeymouse", email: "mmousefan@gmail.com", password: "m", password_confirmation: "m", image_url: "https://image.freepik.com/free-photo/man-pointing-to-his-left_1149-1062.jpg")
 User.create(first_name: "Sarah", last_name: "Meyer", user_name: "sarahh", email: "gumby4ever@gmail.com", password: "g", password_confirmation: "g", image_url: "http://il5.picdn.net/shutterstock/videos/4062847/thumb/7.jpg")
+User.create(first_name: "John", last_name: "Smith", user_name: "johnnyboy", email: "packersfan@packers.com", password: "s", password_confirmation: "s", image_url: "http://content.sportslogos.net/logos/7/171/full/559.png")
 Transaction.create(title: "groceries", description: "milk, eggs, bread", amount: 17.55, user_id: 1, bill_id: 1, payment_type: "Expense").update_balances
 Transaction.create(title: "rent", description: "month of january", amount: 3634.22, user_id: 2, bill_id: 1, payment_type: "Expense").update_balances
 Transaction.create(title: "cleaning supplies", description: "sponges, febreeze, wet wipes", amount: 24.33, user_id: 4, bill_id: 1, payment_type: "Expense").update_balances
