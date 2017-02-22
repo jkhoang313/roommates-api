@@ -68,11 +68,11 @@ ActiveRecord::Schema.define(version: 20170217153444) do
     t.string   "user_name"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "image_url"
+    t.string   "image_url",                               default: "http://www.vistagardentampa.org/assets/empty_avatar.jpg"
     t.integer  "home_id"
     t.decimal  "balance",         precision: 8, scale: 2, default: "0.0"
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
+    t.datetime "created_at",                                                                                                  null: false
+    t.datetime "updated_at",                                                                                                  null: false
   end
 
 end
