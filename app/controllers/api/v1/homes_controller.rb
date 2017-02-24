@@ -1,7 +1,7 @@
 class Api::V1::HomesController < ApplicationController
   def index
     @homes = Home.all
-    render json: @homes
+    render json: @homes.order(:id)
   end
 
   def create

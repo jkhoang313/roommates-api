@@ -22,31 +22,37 @@ Event.create(title: "Birthday Party", description: "Celebrating all the March ba
 Event.create(title: "Movie Night", description: "The Dark Knight, Inception, or Remember the Titans", start_date: "2017-02-29T20:00", end_date: "2017-02-29T22:00", home_id: 1, user_id: 1)
 
 
-
-# demo account
+# fix seed data
 User.create(first_name: "Brad", last_name: "Smith", user_name: "bradlypitt", email: "brad@aol.com", password: "s", password_confirmation: "s", image_url: "http://news.cornell.edu/sites/chronicle.cornell/files/styles/feature_460x307_crop_only/public/mfa460.jpg?itok=nWQ8Y-RY")
-User.create(first_name: "Michael", last_name: "Johnson", user_name: "mickeymouse", email: "mmousefan@gmail.com", password: "m", password_confirmation: "m", image_url: "https://image.freepik.com/free-photo/man-pointing-to-his-left_1149-1062.jpg")
-User.create(first_name: "Sarah", last_name: "Meyer", user_name: "sarahh", email: "gumby4ever@gmail.com", password: "g", password_confirmation: "g", image_url: "http://il5.picdn.net/shutterstock/videos/4062847/thumb/7.jpg")
-User.create(first_name: "John", last_name: "Smith", user_name: "johnnyboy", email: "packersfan@packers.com", password: "s", password_confirmation: "s", image_url: "http://content.sportslogos.net/logos/7/171/full/559.png")
-Transaction.create(title: "groceries", description: "milk, eggs, bread", amount: 17.55, user_id: 1, bill_id: 1, payment_type: "Expense").update_balances
-Transaction.create(title: "rent", description: "month of january", amount: 3634.22, user_id: 2, bill_id: 1, payment_type: "Expense").update_balances
-Transaction.create(title: "cleaning supplies", description: "sponges, febreeze, wet wipes", amount: 24.33, user_id: 4, bill_id: 1, payment_type: "Expense").update_balances
-Transaction.create(title: "paid on venmo", description: "check your venmo", amount: 500, user_id: 3, bill_id: 1, payment_type: "Payment", receiver_id: 2).update_balances
-Transaction.create(title: "papa johns", description: "2 large pizzas and 1 breadsticks", amount: 25.22, user_id: 4, bill_id: 1, payment_type: "Expense").update_balances
-Bill.first.update_changes
 Home.create(address: "11 Broadway", name: "Flatiron", rules: "No shoes on in the house.\nFeed the cat.\nDon't eat all of the oreos.\nAlways make sure there is an extra roll of TP.\nRinse out your dishes before leaving them in the sink.\nDon't Leave dishes in the sink for longer than a day.\nTurn all the lights off before bed and before leaving the apartment.\nMake sure the fridge door is closed.", admin_id: 5)
 Bill.create(home_id: 2, total: 0)
+User.find(5).update(home_id: 2)
+User.create(first_name: "Michael", last_name: "Johnson", user_name: "mickeymouse", email: "mmousefan@gmail.com", password: "m", password_confirmation: "m", image_url: "https://image.freepik.com/free-photo/man-pointing-to-his-left_1149-1062.jpg", home_id: 2)
+User.create(first_name: "Sarah", last_name: "Meyer", user_name: "sarahh", email: "gumby4ever@gmail.com", password: "g", password_confirmation: "g", image_url: "http://il5.picdn.net/shutterstock/videos/4062847/thumb/7.jpg", home_id: 2)
+User.create(first_name: "John", last_name: "Smith", user_name: "johnnyboy", email: "packersfan@packers.com", password: "s", password_confirmation: "s", image_url: "http://content.sportslogos.net/logos/7/171/full/559.png", home_id: 2)
 Transaction.create(title: "groceries", description: "milk, eggs, bread", amount: 17.55, user_id: 5, bill_id: 2, payment_type: "Expense").update_balances
 Transaction.create(title: "rent", description: "month of january", amount: 3634.22, user_id: 6, bill_id: 2, payment_type: "Expense").update_balances
 Transaction.create(title: "cleaning supplies", description: "sponges, febreeze, wet wipes", amount: 24.33, user_id: 5, bill_id: 2, payment_type: "Expense").update_balances
-Transaction.create(title: "paid on venmo", description: "check your venmo", amount: 500, user_id: 7, bill_id: 2, payment_type: "Payment", receiver_id: 5).update_balances
-Transaction.create(title: "papa johns", description: "2 large pizzas and 1 breadsticks", amount: 25.22, user_id: 7, bill_id: 2, payment_type: "Expense").update_balances
-Bill.last.update_changes
+Transaction.create(title: "paid on venmo", description: "check your venmo", amount: 500, user_id: 7, bill_id: 2, payment_type: "Payment", receiver_id: 6).update_balances
+Transaction.create(title: "papa johns", description: "2 large pizzas and 1 breadsticks", amount: 25.22, user_id: 8, bill_id: 2, payment_type: "Expense").update_balances
+Transaction.create(title: "utilities", description: "month of january", amount: 65.44, user_id: 8, bill_id: 2, payment_type: "Expense").update_balances
+Transaction.create(title: "cable/internet", description: "month of january", amount: 62.11, user_id: 6, bill_id: 2, payment_type: "Expense").update_balances
+Transaction.create(title: "bought stuff for taco tuesdat", description: "ground beef, shells, margarita mix", amount: 80.55, user_id: 7, bill_id: 2, payment_type: "Expense").update_balances
+Transaction.create(title: "gave cash", description: "in cash", amount: 500, user_id: 5, bill_id: 2, payment_type: "Payment", receiver_id: 6).update_balances
 Message.create(content: "Anyone want to go to the gym later?", home_id: 2, user_id: 5)
 Message.create(content: "Sorry, maybe tomorrow!", home_id: 2, user_id: 7)
 Message.create(content: "Wait for me! I can go in 30 minutes", home_id: 2, user_id: 8)
 Message.create(content: "Okay ready now", home_id: 2, user_id: 8)
 Message.create(content: "Don't forget to pay me back for rent!", home_id: 2, user_id: 6)
 Message.create(content: "Okay got you", home_id: 2, user_id: 5)
+Message.create(content: "My friend is having something at a comedy club, come out!", home_id: 2, user_id: 6)
+Message.create(content: "Where's it at?", home_id: 2, user_id: 5)
+Message.create(content: "43 Beaver St in FiDi", home_id: 2, user_id: 6)
+Message.create(content: "Can't make it, have a volleyball tournament today", home_id: 2, user_id: 8)
+Message.create(content: "I'll try to come", home_id: 2, user_id: 5)
+Message.create(content: "Okay, want to leave together from home?", home_id: 2, user_id: 6)
 Event.create(title: "surprise party", description: "for my friend Kate", start_date: "2017-04-04T20:00", end_date: "2017-04-04T23:59", home_id: 2, user_id: 8)
-Event.create(title: "maintenance check", description: "The Dark Knight, Inception, or Remember the Titans", start_date: "2017-03-04T23:59", end_date: "2017-03-04T12:00", home_id: 2, user_id: 6)
+Event.create(title: "maintenance check", description: "they're coming to fix our shower", start_date: "2017-03-04T14:00", end_date: "2017-03-04T16:00", home_id: 2, user_id: 6)
+Event.create(title: "movie night", description: "social network, hackers, or pirates of silicon valley", start_date: "2017-03-02T22:00", end_date: "2017-03-02T20:00", home_id: 2, user_id: 6)
+Event.create(title: "having family over", description: "they're going to stay in my room for 2 days", start_date: "2017-03-14T00:00", end_date: "2017-03-16T23:59", home_id: 2, user_id: 5)
+Bill.last.update_changes
