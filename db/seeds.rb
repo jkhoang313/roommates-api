@@ -26,9 +26,9 @@ User.create(first_name: "Brad", last_name: "Smith", user_name: "bradlypitt", ema
 Home.create(address: "11 Broadway", name: "Flatiron", rules: "No shoes on in the house.\nFeed the cat.\nDon't eat all of the oreos.\nAlways make sure there is an extra roll of TP.\nRinse out your dishes before leaving them in the sink.\nDon't Leave dishes in the sink for longer than a day.\nTurn all the lights off before bed and before leaving the apartment.\nMake sure the fridge door is closed.", admin_id: 5)
 Bill.create(home_id: 2, total: 0)
 User.find(5).update(home_id: 2)
-User.create(first_name: "Michael", last_name: "Johnson", user_name: "mickeymouse", email: "mmousefan@gmail.com", password: "m", password_confirmation: "m", image_url: "https://news.cornell.edu/sites/chronicle.cornell/files/styles/feature_460x307_crop_only/public/mfa460.jpg?itok=nWQ8Y-RY", home_id: 2)
+User.create(first_name: "Michael", last_name: "Johnson", user_name: "mickeymouse", email: "mmousefan@gmail.com", password: "m", password_confirmation: "m", image_url: "http://news.cornell.edu/sites/chronicle.cornell/files/styles/feature_460x307_crop_only/public/mfa460.jpg?itok=nWQ8Y-RY", home_id: 2)
 User.create(first_name: "Sarah", last_name: "Meyer", user_name: "sarahh", email: "gumby4ever@gmail.com", password: "g", password_confirmation: "g", image_url: "https://il5.picdn.net/shutterstock/videos/4062847/thumb/7.jpg", home_id: 2)
-User.create(first_name: "John", last_name: "Smith", user_name: "johnnyboy", email: "packersfan@packers.com", password: "s", password_confirmation: "s", image_url: "https://content.sportslogos.net/logos/7/171/full/559.png", home_id: 2)
+User.create(first_name: "John", last_name: "Smith", user_name: "johnnyboy", email: "packersfan@packers.com", password: "s", password_confirmation: "s", image_url: "http://content.sportslogos.net/logos/7/171/full/559.png", home_id: 2)
 Transaction.create(title: "groceries", description: "milk, eggs, bread", amount: 17.55, user_id: 5, bill_id: 2, payment_type: "Expense").update_balances
 Transaction.create(title: "rent", description: "month of january", amount: 3634.22, user_id: 6, bill_id: 2, payment_type: "Expense").update_balances
 Transaction.create(title: "cleaning supplies", description: "sponges, febreeze, wet wipes", amount: 24.33, user_id: 5, bill_id: 2, payment_type: "Expense").update_balances
